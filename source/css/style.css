@@ -1,0 +1,77 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.card img {
+    opacity: 0.8;
+    transition: 0.3s;
+}
+
+.card:hover img {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.card .btn {
+    margin-top: 15px;
+}
+
+.navbar {
+    background-color: #1e3d6f;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: white !important;
+}
+
+.card-header {
+    background-color: #2c5aa0;
+    color: white;
+}
+
+.btn-primary {
+    background-color: #2c5aa0;
+    border-color: #2c5aa0;
+}
+
+.btn-primary:hover {
+    background-color: #1e3d6f;
+    border-color: #1e3d6f;
+}
+
+.btn-toggle {
+    padding: .25rem .5rem;
+    font-weight: 600;
+    color: rgba(0, 0, 0, .75);
+    background-color: transparent;
+    border: none;
+}
+
+.btn-toggle:hover,
+.btn-toggle:focus {
+    color: rgba(0, 0, 0, .95);
+    background-color: #e7e7e7;
+}
+
+.btn-toggle-nav a {
+    padding: .1875rem .5rem;
+    margin-top: .125rem;
+    margin-left: 1.25rem;
+    display: block;
+}
+
+.btn-toggle-nav a:hover,
+.btn-toggle-nav a:focus {
+    background-color: #e7e7e7;
+}
+
+.border-end {
+    border-right: 1px solid rgba(0, 0, 0, .125);
+}
+
+.nav-link.active,
+.btn-toggle-nav a.active {
+    background-color: #2c5aa0;
+    color: white !important;
+}
