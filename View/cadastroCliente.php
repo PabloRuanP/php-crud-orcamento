@@ -26,6 +26,10 @@ require_once "_header.php";
 
 <script>
     $(document).ready(function() {
+        $("#codigo").on("input", function() {
+            this.value = this.value.replace(/\D/g, '');
+        });
+        
         $('#form-cadastro').on('submit', function(e) {
             e.preventDefault();
 

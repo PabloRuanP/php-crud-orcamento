@@ -26,6 +26,11 @@ require_once "_header.php";
 
 <script>
     $(document).ready(function() {
+
+        $("#codigo").on("input", function() {
+            this.value = this.value.replace(/\D/g, '');
+        });
+        
         const urlParams = new URLSearchParams(window.location.search);
         const id = urlParams.get('id');
 
