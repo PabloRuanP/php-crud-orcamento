@@ -25,7 +25,9 @@ $listaProdutos = $produto->listarProduto();
             <select class="form-control" id="cliente_id" name="cliente_id" required>
                 <option value="">Selecione um cliente</option>
                 <?php foreach ($listaClientes as $cli) : ?>
-                    <option value="<?= $cli['id'] ?>"><?= $cli['nome'] ?></option>
+                    <option value="<?= $cli['id'] ?>" data-codigo="<?= $cli['codigo'] ?>">
+                        <?= $cli['nome'] ?>
+                    </option>
                 <?php endforeach; ?>
             </select>
         </div>
@@ -35,7 +37,9 @@ $listaProdutos = $produto->listarProduto();
             <select class="form-control" id="vendedor_id" name="vendedor_id" required>
                 <option value="">Selecione um vendedor</option>
                 <?php foreach ($listaVendedores as $vend) : ?>
-                    <option value="<?= $vend['id'] ?>"><?= $vend['nome'] ?></option>
+                    <option value="<?= $vend['id'] ?>" data-codigo="<?= $vend['codigo'] ?>">
+                        <?= $vend['nome'] ?>
+                    </option>
                 <?php endforeach; ?>
             </select>
         </div>
@@ -126,6 +130,13 @@ $listaProdutos = $produto->listarProduto();
     }
 
     $(document).ready(function() {
+
+        $("#quantidade").on("keypress", (e) => {
+            if (!/[0-9]/.test(ekey)) {
+                e.preventDefault();
+            }
+        });
+
         const urlParams = new URLSearchParams(window.location.search);
         const id = urlParams.get('id');
 
@@ -205,12 +216,12 @@ $listaProdutos = $produto->listarProduto();
 
             const data = {
                 id: $("#id").val(),
-                cliente_id: $("#cliente_id").val(),
-                vendedor_id: $("#vendedor_id").val(),
+                cliente_codigo: $("#cliente_id").data("codigo"),
+                vendedor_codigo: $("#vendedor_id").data("codigo"),
                 itens: itens
             };
 
-            if (data.cliente_id === data.vendedor_id) {
+            if (data.cliente_codigo === data.vendedor_codigo) {
                 alert('Cliente e Vendedor não podem ser o mesmo.');
                 return;
             }

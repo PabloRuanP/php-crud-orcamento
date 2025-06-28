@@ -31,8 +31,11 @@ require_once "_header.php";
 
 <script>
     $(document).ready(function() {
-        $("#codigo").on("input", function() {
-            this.value = this.value.replace(/\D/g, '');
+
+        $("#preco").on("keypress", (e) => {
+            if (!/[0-9]/.test(e.key)) {
+                e.preventDefault();
+            }
         });
 
         const urlParams = new URLSearchParams(window.location.search);

@@ -1,6 +1,6 @@
 <?php
 require_once "_header.php";
-require_once '../Model/ProdutoModel.php'; // Certifique-se que a classe está sendo importada
+require_once '../Model/ProdutoModel.php';
 
 $produto = new Produto();
 $listaProdutos = $produto->listarProduto();
@@ -42,6 +42,13 @@ $listaProdutos = $produto->listarProduto();
 
 <script>
     $(document).ready(function() {
+
+        $("#quantidade_pagar, #quantidade_levar").on("keypress", (e) => {
+            if (!/[0-9]/.test(e.key)) {
+                e.preventDefault();
+            }
+        });
+        
         const urlParams = new URLSearchParams(window.location.search);
         const id = urlParams.get('id');
 

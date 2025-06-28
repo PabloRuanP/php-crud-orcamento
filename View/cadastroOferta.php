@@ -42,6 +42,13 @@ $listaProdutos = $produto->listarProduto();
 
 <script>
     $(document).ready(function() {
+        
+        $("#quantidade_pagar, #quantidade_levar").on("keypress", (e) => {
+            if (!/[0-9]/.test(e.key)) {
+                e.preventDefault();
+            }
+        });
+
         $('#form-cadastro').on('submit', function(e) {
             e.preventDefault();
 

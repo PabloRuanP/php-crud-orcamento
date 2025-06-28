@@ -26,7 +26,7 @@
 
         const tabela = $("#tabela-vendedores").DataTable({
             ajax: {
-                url: 'Controller/VendedorController.php?action=listar',
+                url: '../Controller/VendedorController.php?action=listar',
                 dataSrc: 'data'
             },
             columns: [{
@@ -65,7 +65,6 @@
             autoWidth: false
         });
 
-        // Excluir cliente
         $("#tabela-vendedores tbody").on("click", ".deletar", function() {
             const id = $(this).data("id");
 
